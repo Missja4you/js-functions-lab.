@@ -69,10 +69,11 @@ should return 'johnsmith@example.com'.
 Complete the exercise in the space below:
 */
 
-
-const generateEmail = ('name', 'domain') =>{
-  return 'name' + @'domain';
+function generateEmail(name, domain) {
+  return `${name}@${domain}`;
 }
+
+
 console.log('Exercise 4 Result:', generateEmail("johnsmith", "example.com"));
 
 /*
@@ -86,18 +87,9 @@ Example: greetUser('Sam', 'morning') should return "Good morning, Sam!"
 
 Complete the exercise in the space below:
 */
- 
-const greetUser = ('day','timeofday') {
-  let greeting;
-  if (timeOfDay === 'morning') {
-    greeting = 'Good morning';
-  } else if (timeOfDay === 'afternoon') {
-    greeting = 'Good afternoon';
-  } else if (timeOfDay === 'evening') {
-    greeting = 'Good evening';
-  } else {
-    greeting = 'Hello';
-}
+function greetUser(name, timeOfDay) {
+  return `Good ${timeOfDay}, ${name}!`;
+} 
 
 console.log('Exercise 5 Result:', greetUser("Sam", "morning"));
 
@@ -111,7 +103,7 @@ Example: maxOfThree(17, 4, 9) should return 17.
 
 Complete the exercise in the space below:
 */
-const maxOfThree = ('num1', 'num2', 'num3'){
+function maxOfThree (num1, num2, num3) {
   return Math.max('num1','num2', 'num3');
 }
 
@@ -129,10 +121,10 @@ Example: calculateTip(50, 20) should return 10.
 
 Complete the exercise in the space below:
 */
-const calculateTip = ('billAmout', 'tipPercentage')=>[
-        return (tipAmount);
-]
-onsole.log('Exercise 7 Result:', calculateTip(50, 20));
+function calculateTip (billAmount, tipPercentage) {
+  return (billAmount * tipPercentage) / 100;
+}
+console.log('Exercise 7 Result:', calculateTip(50, 20));
 
 /*
 Exercise 8: convertTemperature()
@@ -148,14 +140,13 @@ Example: convertTemperature(32, 'F') should return 0 (Celsius).
 Complete the exercise in the space below:
 */
 
-const convertTemperature = ('temperature','scale')=> {
-  if (scale ==="c")
+function convertTemperature (temperature, scale) {
+  if (scale ==="c") {
     convertedTemperature = (temperature * 9/5) + 32;
  } else if (scale ==="F") {
     convertedTemperature = (temperature - 32) * 5/9;
-  }
+  }return convertTemperature;
 }
-return convertTemperature;
 
 console.log('Exercise 8 Result:', convertTemperature(32, "C"));
 
@@ -175,8 +166,19 @@ Example: basicCalculator(10, 5, 'subtract') should return 5.
 
 Complete the exercise in the space below:
 */
-const basicCalculator =(score) =>{
-
+const basicCalculator = (num1, num2, operation) => {
+    switch (operation) {
+        case 'add':
+            return num1 + num2;
+        case 'subtract':
+            return num1 - num2;
+        case 'multiply':
+            return num1 * num2;
+        case 'divide':
+            return num1 / num2;
+        default:
+            return 'Invalid operation';
+    }
 }
 
 
@@ -251,8 +253,8 @@ This function should return the count of arguments passed to it when called.
 Complete the exercise in the space below:
 */
 
-const numArgs () =>{
-  return argument.num
-}
+function numArgs() { 
+  return arguments.length;
+} 
 
 console.log('Exercise 12 Result:', numArgs(1, 2, 3, 4));
